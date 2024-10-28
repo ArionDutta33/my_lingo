@@ -41,7 +41,7 @@ export default function Home() {
         </View>
       </View>
       {output && (
-        <View className="gap-5 bg-gray-300 p-5">
+        <View className="gap-5 bg-gray-200 p-5">
           <Text className="min-h-32   text-lg">{output}</Text>
           <View className="flex-row justify-between">
             <FontAwesome6 name="volume-high" size={18} color="dimgray" />
