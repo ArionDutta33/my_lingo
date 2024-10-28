@@ -5,12 +5,23 @@ import { Button } from '~/components/Button';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Feather from '@expo/vector-icons/Feather';
 import { useState } from 'react';
+import { supabase } from '~/utils/supabase';
 export default function Home() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
 
-  const onTranslate = () => {
-    const translation = input;
+  const translate = async (text: string) => {
+    const { data, error } = await supabase.functions.invoke('translate', {
+      body: JSON.stringify({ name: 'Arion' }),
+    });
+    console.log(data);
+    console.log(error);
+
+    return 'translation';
+  };
+
+  const onTranslate = async () => {
+    const translation = await translate(input);
     setOutput(translation);
   };
   return (
